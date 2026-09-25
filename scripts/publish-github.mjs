@@ -8,7 +8,7 @@ function gh(args,input){
  return r.stdout.trim()?JSON.parse(r.stdout):null;
 }
 const allowedFiles=['.env.example','.gitignore','.npmrc','INICIAR.cmd','README.md','firebase.json','firestore.indexes.json','firestore.rules','index.html','package.json','pnpm-lock.yaml','pnpm-workspace.yaml','vite.config.js'];
-const allowedDirs=['src','server','docs','tests','reports','.github','supabase','functions','scripts'];
+const allowedDirs=['apps-script','src','server','docs','tests','reports','.github','supabase','functions','scripts'];
 const forbidden=['node_modules','.temp','shared'];
 function walk(path){return readdirSync(path).flatMap(name=>{if(forbidden.includes(name))return [];const p=join(path,name);if(p.replaceAll('\\','/').startsWith('functions/server'))return [];return statSync(p).isDirectory()?walk(p):[p];});}
 const paths=[...allowedFiles,...allowedDirs.flatMap(p=>existsSync(p)?walk(p):[])].map(p=>p.replaceAll('\\','/'));
@@ -28,7 +28,7 @@ catch(e){
 const parent=head.object.sha,commit=gh(['api','repos/'+repo+'/git/commits/'+parent]);
 const newTree=gh(['api','repos/'+repo+'/git/trees','--method','POST'],{base_tree:commit.tree.sha,tree});
 if(newTree.sha===commit.tree.sha){console.log(JSON.stringify({repository:repo,unchanged:true,sha:parent}));process.exit(0);}
-const next=gh(['api','repos/'+repo+'/git/commits','--method','POST'],{message:'Build free enrollment app with Supabase and GitHub Pages',tree:newTree.sha,parents:[parent]});
+const next=gh(['api','repos/'+repo+'/git/commits','--method','POST'],{message:'Build free enrollment app with Google Sheets and GitHub Pages',tree:newTree.sha,parents:[parent]});
 const current=gh(['api','repos/'+repo+'/git/ref/heads/'+branch]);
 if(current.object.sha!==parent)throw new Error('Remote branch changed; no ref was overwritten. Inspect and retry.');
 gh(['api','repos/'+repo+'/git/refs/heads/'+branch,'--method','PATCH'],{sha:next.sha,force:false});

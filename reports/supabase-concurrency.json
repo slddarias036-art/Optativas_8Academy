@@ -1,12 +1,12 @@
 {
-  "fecha": "2026-09-25T06:40:14.148Z",
+  "fecha": "2026-09-25T06:51:35.210Z",
   "motor": "PostgreSQL embebido PGlite, migración SQL y adaptador reales; transporte RPC local de pruebas",
   "solicitudes": 100,
   "aceptadas": 25,
   "rechazadasPorCupo": 75,
   "sobrecupos": 0,
   "gruposComprobados": 24,
-  "duracionMs": 2116,
+  "duracionMs": 3513,
   "resultado": "PASS",
   "limite": "No valida Supabase remoto ni su red, límites o Realtime."
 }

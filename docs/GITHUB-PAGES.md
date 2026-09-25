@@ -1,24 +1,14 @@
-# Publicación mediante GitHub Pages
+# Publicación gratuita mediante GitHub Pages
 
-Se eligió GitHub Pages + Supabase Free para respetar la petición «Todo gratis».
-Guía vigente: [SUPABASE-GRATIS.md](SUPABASE-GRATIS.md).
+La opción elegida es **GitHub Pages + Google Sheets privado + Apps Script**.
+Guía vigente: [GOOGLE-SHEETS.md](GOOGLE-SHEETS.md).
 
 Repositorio: https://github.com/slddarias036-art/Optativas_8Academy
-URL prevista: https://slddarias036-art.github.io/Optativas_8Academy/
+Página: https://slddarias036-art.github.io/Optativas_8Academy/
 
-## Preparación realizada
-- Rutas compatibles con subcarpetas de GitHub Pages.
-- Administración en ?admin=1, sin 404 al recargar.
-- Workflow manual que prueba, compila y publica solo dist.
-- Configuración pública Supabase mediante variables de GitHub.
-- Si ambas variables de Supabase faltan, se publica un estado de preparación que NO permite matrículas.
-- Si falta solo una variable o se detecta clave de servidor, se bloquea el build.
-- Nómina, SQLite, credenciales y contraseña local no forman parte del repositorio.
+El workflow usa VITE_BACKEND=sheets y la variable pública VITE_APPS_SCRIPT_URL.
+Hasta que esa URL /exec esté configurada, la página muestra «Inscripciones en preparación» y no registra estudiantes.
 
-## Publicar
-1. Settings > Pages: GitHub Actions.
-2. Actions > Publicar interfaz en GitHub Pages > Run workflow.
-3. Para activar el servicio, seguir la guía Supabase y configurar VITE_SUPABASE_URL y VITE_SUPABASE_PUBLISHABLE_KEY.
-4. Revisar seguridad, concurrencia y datos en el servicio remoto antes de abrir el proceso.
+El titular crea una hoja privada e instala los cuatro archivos de apps-script. Después despliega como aplicación web, ejecutada por el propietario y accesible sin login para estudiantes. Solo comparte el enlace /exec; la hoja no es pública.
 
-La interfaz pública y el registro funcional son estados distintos: no abrir inscripciones hasta que el backend esté configurado y verificado.
+GitHub Actions ejecuta las pruebas, compila y publica únicamente dist. La nómina, claves y contraseña local quedan fuera del repositorio. El frontend puede incrustar Apps Script o abrirlo en otra pestaña si el navegador impide el iframe.

@@ -1,11 +1,13 @@
 # Optativas · Eight Academy
 
-**Publicación gratuita:** se eligió GitHub Pages + Supabase Free por solicitud del colegio. Consulta [SUPABASE-GRATIS.md](docs/SUPABASE-GRATIS.md). Firebase queda como alternativa opcional y no se activará su facturación.
+**Opción elegida:** GitHub Pages + Google Sheets privado + Apps Script, sin planes de pago. Sigue [GOOGLE-SHEETS.md](docs/GOOGLE-SHEETS.md). Los archivos listos para Google están en apps-script/. Supabase y Firebase quedan como alternativas opcionales que no se están contratando.
 
-Aplicación en español para inscripción sin cuenta de estudiante. React, servidor transaccional, Firestore para producción y SQLite para demostración local gratuita. Administración separada en /admin.
+La página pública permanece en preparación hasta configurar la URL /exec de Apps Script. La nómina nunca se sube al repositorio.
+
+Aplicación en español para inscripción sin cuenta de estudiante. React y backend con validación de cupos. La publicación elegida usa Google Sheets y Apps Script; la demostración local usa SQLite. Administración de Google desde el menú Optativas de la hoja privada.
 
 ## Estado de esta entrega
-El colegio solicitó instalación y demostración local porque todavía no tiene un proyecto Firebase. No se ha publicado el sitio ni enviado la nómina a servicios externos. La configuración de producción está preparada y requiere un proyecto propio para desplegar. Firebase Functions requiere Blaze y no se promete operación gratuita ilimitada.
+Después de la demostración local, el colegio pidió un enlace público gratuito y eligió Google Sheets + Apps Script. El código se publica en slddarias036-art/Optativas_8Academy. La activación del registro depende de conectar la hoja privada y su despliegue Apps Script. Las secciones locales y Firebase siguientes son alternativas técnicas, no requisitos para la opción Google.
 
 ## Inicio rápido local
 Requiere Node.js **24** (incluye node:sqlite), npm y un navegador moderno.
@@ -116,7 +118,7 @@ Consulta docs/VERIFICACION.md para los límites de validación de esta entrega.
 Son pruebas locales de SQLite + lógica compartida; **no equivalen a una prueba del backend Firebase desplegado**. Antes de producción ejecutar también las pruebas en Firestore Emulator y preproducción.
 
 ## Enlace público mediante GitHub Pages
-Consulta [docs/GITHUB-PAGES.md](docs/GITHUB-PAGES.md). Las rutas y el workflow están preparados; la publicación requiere conectar GitHub y un backend en línea. La base local no puede compartirse a través de Pages.
+Consulta [docs/GOOGLE-SHEETS.md](docs/GOOGLE-SHEETS.md). El workflow usa VITE_BACKEND=sheets y VITE_APPS_SCRIPT_URL. La base local no puede compartirse a través de Pages.
 
 ## Firebase: instalación y despliegue
 1. Crear proyecto propio. Revisar costos y activar Blaze solo con autorización del colegio. Instalar Firebase CLI y autenticar con firebase login.

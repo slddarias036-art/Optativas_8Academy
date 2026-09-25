@@ -15,7 +15,8 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     env:
-      VITE_BACKEND: supabase
+      VITE_BACKEND: sheets
+      VITE_APPS_SCRIPT_URL: ${{ vars.VITE_APPS_SCRIPT_URL }}
       VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
       VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY }}
       VITE_FIREBASE_API_KEY: ${{ vars.VITE_FIREBASE_API_KEY }}
@@ -35,6 +36,8 @@ jobs:
         run: |
           npm install --global pnpm@11.19.0
           pnpm install --frozen-lockfile
+      - name: Generar motor de Apps Script
+        run: node scripts/prepare-apps-script.mjs --engine-only
       - name: Probar dominio y servidor
         run: pnpm test
       - name: Configurar Pages

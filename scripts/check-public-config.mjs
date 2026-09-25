@@ -1,5 +1,10 @@
 const backend=process.env.VITE_BACKEND;
-if(backend==='supabase'){
+if(backend==='sheets'){
+ const url=process.env.VITE_APPS_SCRIPT_URL?.trim();
+ if(!url){console.log('Inscripciones deshabilitadas hasta conectar el despliegue de Apps Script.');process.exit(0);}
+ if(!/^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(url))throw new Error('Usa la URL pública /exec de Apps Script.');
+ console.log('URL Apps Script configurada.');
+}else if(backend==='supabase'){
  const url=process.env.VITE_SUPABASE_URL?.trim(),key=process.env.VITE_SUPABASE_PUBLISHABLE_KEY?.trim();
  if(!url&&!key){console.log('Publicación en preparación: las inscripciones quedarán deshabilitadas hasta conectar Supabase.');process.exit(0);}
  if(!url||!key)throw new Error('Configura VITE_SUPABASE_URL y VITE_SUPABASE_PUBLISHABLE_KEY conjuntamente.');

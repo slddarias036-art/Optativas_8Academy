@@ -1,4 +1,6 @@
 import {supabaseApi,subscribeSupabase} from './supabase-api.js';
+import {sheetsApi,subscribeSheets} from './sheets-api.js';
+export const sheetsMode=import.meta.env.VITE_BACKEND==='sheets';
 export const firebaseMode=import.meta.env.VITE_BACKEND==='firebase';
 export const supabaseMode=import.meta.env.VITE_BACKEND==='supabase';
 export const cloudMode=firebaseMode||supabaseMode;
@@ -12,6 +14,7 @@ async function firebase(){
  })();return fbPromise;
 }
 export async function api(action,data={}){
+ if(sheetsMode)return sheetsApi(action,data);
  if(supabaseMode)return supabaseApi(action,data);
  if(firebaseMode){
  const f=await firebase();
@@ -24,6 +27,7 @@ export async function api(action,data={}){
  if(v.error){const e=new Error(v.error.message);e.code=v.error.code;throw e;}return v;
 }
 export function subscribeStatus(update,error){
+ if(sheetsMode)return subscribeSheets(update,error);
  if(supabaseMode)return subscribeSupabase(update,error);
  let active=true,unsubs=[],timer;
  if(firebaseMode){firebase().then(f=>{
