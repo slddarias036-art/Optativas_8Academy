@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.env
+.env.local
+.env.*
+!.env.example
+private/
+*.log
+.firebase/
+.pnpm-store/
+functions/server/
+functions/node_modules/
+supabase/functions/optativas/shared/
+supabase/.temp/

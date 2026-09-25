@@ -1,0 +1,23 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "students",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "seccion",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "nivel",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "nombreNormalizado",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}

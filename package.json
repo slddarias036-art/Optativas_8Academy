@@ -1,0 +1,31 @@
+{
+  "name": "eight-optativas",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node server/local.mjs",
+    "build": "vite build --configLoader native",
+    "test": "node --test tests/*.test.mjs",
+    "simulate": "node scripts/concurrency.mjs",
+    "start": "node server/local.mjs",
+    "import:excel": "node scripts/import-roster.mjs",
+    "seed:firebase": "node scripts/firebase-setup.mjs",
+    "prepare:supabase": "node scripts/prepare-supabase.mjs",
+    "seed:supabase": "node scripts/supabase-setup.mjs"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "firebase": "^12.0.0",
+    "firebase-admin": "^13.0.0",
+    "firebase-functions": "^6.0.0",
+    "papaparse": "^5.5.0",
+    "lucide-react": "^0.468.0",
+    "@supabase/supabase-js": "^2.0.0"
+  },
+  "devDependencies": {
+    "vite": "^7.0.0",
+    "@electric-sql/pglite": "^0.3.0"
+  }
+}

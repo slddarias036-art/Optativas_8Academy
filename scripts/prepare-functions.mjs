@@ -1,0 +1,1 @@
+import {mkdirSync,copyFileSync} from 'node:fs';mkdirSync('functions/server',{recursive:true});for(const file of ['catalog.mjs','domain.mjs','service.mjs','firestore.mjs'])copyFileSync('server/'+file,'functions/server/'+file);console.log('Backend Firebase preparado.');

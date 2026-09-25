@@ -1,0 +1,5 @@
+import {initializeApp,applicationDefault} from 'firebase-admin/app';import {getFirestore} from 'firebase-admin/firestore';import {getAuth} from 'firebase-admin/auth';import {FirestoreStore} from '../server/firestore.mjs';import {initialize,importStudents} from '../server/service.mjs';import {readFileSync} from 'node:fs';
+if(!process.env.GOOGLE_CLOUD_PROJECT)throw new Error('Configura GOOGLE_CLOUD_PROJECT y Application Default Credentials; nunca guardes credenciales en el repositorio.');
+initializeApp({credential:applicationDefault(),projectId:process.env.GOOGLE_CLOUD_PROJECT});const store=new FirestoreStore(getFirestore());await initialize(store);
+if(process.argv.includes('--roster'))console.log(await importStudents(store,JSON.parse(readFileSync('private/roster.json','utf8')),'instalacion'));
+const uid=process.env.ADMIN_UID;if(uid){const u=await getAuth().getUser(uid);await getAuth().setCustomUserClaims(uid,{...u.customClaims,admin:true});console.log('Rol de administrador asignado.');}

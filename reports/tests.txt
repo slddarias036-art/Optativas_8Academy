@@ -1,0 +1,24 @@
+✔ 1. estudiante válido registra matrícula y actualiza todos los datos (12.526ms)
+✔ 2. segunda matrícula rechazada (9.0443ms)
+✔ 3. grupo lleno rechaza y no deja escrituras parciales (10.1663ms)
+✔ 4. dos solicitudes disputan cupo 25: solo una gana (10.7058ms)
+✔ 5. 100 solicitudes simultáneas, 25 plazas y contadores consistentes (18.5413ms)
+✔ 6. subjectId manipulado rechazado (3.5779ms)
+✔ 7. materia de otra sección rechazada (3.6096ms)
+✔ 8. estudiante de otro nivel rechazado (4.5043ms)
+✔ 9. cambio administrativo mantiene contadores y auditoría (7.193ms)
+✔ 10. múltiples clics/pestañas: una sola matrícula (9.9161ms)
+✔ cierre, ticket alterado y autorización administrativa (7.8948ms)
+✔ normalización, búsqueda limitada y privada (10.7592ms)
+✔ CSV: comillas, duplicados, errores, fórmulas y reimportación segura (15.2525ms)
+✔ cambio a grupo lleno conserva matrícula y ambos contadores (18.2037ms)
+✔ HTTP: protección admin, sesión, cierre, importación y exportación (159.7384ms)
+✔ SSE entrega actualización al cambiar apertura (20.2971ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 415.9441

@@ -1,0 +1,16 @@
+{
+  "total": 467,
+  "porNivel": {
+    "8vo": 85,
+    "9no": 79,
+    "10mo": 66,
+    "1ero BGU": 101,
+    "2do BGU": 72,
+    "3ro BGU": 64
+  },
+  "incidencias": [],
+  "sinSeparacionApellidosNombres": 467,
+  "advertenciasCapacidad": [
+    "1ero BGU: 101 estudiantes para 100 cupos"
+  ]
+}

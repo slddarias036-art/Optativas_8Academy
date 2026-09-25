@@ -1,0 +1,4 @@
+project_id = "optativas-eight-academy"
+[functions.optativas]
+# Students intentionally have no Auth account. The handler verifies every admin JWT.
+verify_jwt = false

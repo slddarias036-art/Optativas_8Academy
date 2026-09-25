@@ -1,0 +1,133 @@
+{
+  "fecha": "2026-09-25T05:44:59.579Z",
+  "backend": "SQLite local + HTTP real + lógica compartida con Firestore",
+  "solicitudesConcurrentes": 100,
+  "exitos": 25,
+  "rechazosPorCupo": 75,
+  "sobrecupos": 0,
+  "duracionMs": 172,
+  "grupos": [
+    {
+      "grupo": "10mo_multimedia",
+      "inscritos": 0,
+      "limite": 25
+    },
+    {
+      "grupo": "10mo_personal_branding",
+      "inscritos": 0,
+      "limite": 25
+    },
+    {
+      "grupo": "10mo_produccion_musical",
+      "inscritos": 0,
+      "limite": 25
+    },
+    {
+      "grupo": "10mo_robotica_ia",
+      "inscritos": 0,
+      "limite": 25
+    },
+    {
+      "grupo": "1ero_BGU_diseno_grafico",
+      "inscritos": 0,
+      "limite": 25
+    },
+    {
+      "grupo": "1ero_BGU_no_code",
+      "inscritos": 0,
+      "limite": 25
+    },
+    {
+      "grupo": "1ero_BGU_personal_branding",
+      "inscritos": 0,
+      "limite": 25
+    },
+    {
+      "grupo": "1ero_BGU_video_mapping",
+      "inscritos": 0,
+      "limite": 25
+    },
+    {
+      "grupo": "2do_BGU_diseno_grafico",
+      "inscritos": 0,
+      "limite": 25
+    },
+    {
+      "grupo": "2do_BGU_no_code",
+      "inscritos": 0,
+      "limite": 25
+    },
+    {
+      "grupo": "2do_BGU_personal_branding",
+      "inscritos": 0,
+      "limite": 25
+    },
+    {
+      "grupo": "2do_BGU_video_mapping",
+      "inscritos": 0,
+      "limite": 25
+    },
+    {
+      "grupo": "3ro_BGU_diseno_grafico",
+      "inscritos": 0,
+      "limite": 25
+    },
+    {
+      "grupo": "3ro_BGU_no_code",
+      "inscritos": 0,
+      "limite": 25
+    },
+    {
+      "grupo": "3ro_BGU_personal_branding",
+      "inscritos": 0,
+      "limite": 25
+    },
+    {
+      "grupo": "3ro_BGU_video_mapping",
+      "inscritos": 0,
+      "limite": 25
+    },
+    {
+      "grupo": "8vo_multimedia",
+      "inscritos": 0,
+      "limite": 25
+    },
+    {
+      "grupo": "8vo_personal_branding",
+      "inscritos": 0,
+      "limite": 25
+    },
+    {
+      "grupo": "8vo_produccion_musical",
+      "inscritos": 0,
+      "limite": 25
+    },
+    {
+      "grupo": "8vo_robotica_ia",
+      "inscritos": 0,
+      "limite": 25
+    },
+    {
+      "grupo": "9no_multimedia",
+      "inscritos": 0,
+      "limite": 25
+    },
+    {
+      "grupo": "9no_personal_branding",
+      "inscritos": 0,
+      "limite": 25
+    },
+    {
+      "grupo": "9no_produccion_musical",
+      "inscritos": 0,
+      "limite": 25
+    },
+    {
+      "grupo": "9no_robotica_ia",
+      "inscritos": 25,
+      "limite": 25
+    }
+  ],
+  "resultado": "PASS",
+  "limiteValidacion": "No constituye prueba del servicio Firestore desplegado."
+}

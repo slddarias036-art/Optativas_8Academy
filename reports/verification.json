@@ -1,0 +1,19 @@
+{
+  "date": "2026-09-25T05:43:45.325Z",
+  "automatedTests": {
+    "passed": 16,
+    "failed": 0,
+    "scope": "SQLite, dominio compartido, HTTP, sesión, CSV, SSE"
+  },
+  "concurrency": "reports/concurrency.json",
+  "visual": {
+    "desktopInitial": "Inspeccionada",
+    "fullWorkflow": "Pendiente: aprobación automática del navegador bloqueada",
+    "mobile": "Pendiente"
+  },
+  "firestore": {
+    "emulator": "No ejecutado: Java no disponible",
+    "production": "No desplegado: sin proyecto Firebase"
+  },
+  "realEnrollmentsModifiedByTests": 0
+}

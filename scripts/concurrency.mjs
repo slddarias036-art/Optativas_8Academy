@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';import {randomUUID} from 'node:crypto';import {mkdirSync,writeFileSync} from 'node:fs';import {SQLiteStore} from '../server/sqlite.mjs';import {initialize} from '../server/service.mjs';import {createServer} from '../server/local.mjs';
+const store=new SQLiteStore();await initialize(store);const tickets=[];
+await store.transaction(async tx=>{tx.set('config','registration',{registrationOpen:true});for(let i=0;i<100;i++){tx.set('students','T'+i,{id:'T'+i,nombreCompleto:'ESTUDIANTE DE PRUEBA '+i,seccion:'basica',nivel:'9no',paralelo:'A',matriculado:false});const ticket=randomUUID();tickets.push(ticket);tx.set('tickets',ticket,{studentId:'T'+i,seccion:'basica',nivel:'9no',expiresAt:Date.now()+600000});}});
+const server=await createServer({store,password:randomUUID()});await new Promise(r=>server.listen(0,'127.0.0.1',r));const base='http://127.0.0.1:'+server.address().port;
+const start=Date.now();
+const results=await Promise.all(Array.from({length:100},async(_,i)=>{const r=await fetch(base+'/api',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'enroll',data:{studentId:'T'+i,ticket:tickets[i],seccion:'basica',nivel:'9no',subjectId:'robotica_ia'}})});return {status:r.status,...await r.json()};}));
+const groups=await store.list('groups'),enrollments=await store.list('enrollments');
+for(const g of groups){assert.ok(g.inscritos<=25&&g.inscritos>=0);assert.equal(g.inscritos,enrollments.filter(e=>e.groupId===g.id).length);}
+assert.equal(results.filter(r=>r.status===200).length,25);assert.equal(results.filter(r=>r.error?.code==='FULL').length,75);assert.equal(new Set(enrollments.map(e=>e.studentId)).size,enrollments.length);
+const report={fecha:new Date().toISOString(),backend:'SQLite local + HTTP real + lógica compartida con Firestore',solicitudesConcurrentes:100,exitos:25,rechazosPorCupo:75,sobrecupos:0,duracionMs:Date.now()-start,grupos:groups.map(g=>({grupo:g.id,inscritos:g.inscritos,limite:25})),resultado:'PASS',limiteValidacion:'No constituye prueba del servicio Firestore desplegado.'};
+mkdirSync('reports',{recursive:true});writeFileSync('reports/concurrency.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));await new Promise(r=>server.close(r));store.close();

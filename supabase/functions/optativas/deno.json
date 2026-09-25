@@ -1,0 +1,9 @@
+{
+  "imports": {
+    "papaparse": "npm:papaparse@5.7.0",
+    "@supabase/supabase-js": "npm:@supabase/supabase-js@2.117.1"
+  },
+  "compilerOptions": {
+    "allowJs": true
+  }
+}

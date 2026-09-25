@@ -1,0 +1,3 @@
+import {SQLiteStore} from '../server/sqlite.mjs';import {initialize,importStudents} from '../server/service.mjs';import {createServer} from '../server/local.mjs';
+const store=new SQLiteStore();await initialize(store);await importStudents(store,[{codigo_estudiante:'TEST-UI-001',apellidos:'PRUEBA GARCÍA',nombres:'ANA DEMOSTRACIÓN',seccion:'basica',nivel:'9no',paralelo:'A'}],'fixture');await store.transaction(async tx=>tx.set('config','registration',{registrationOpen:true}));
+const server=await createServer({store,password:'solo-prueba-ui'});server.listen(5174,'127.0.0.1',()=>console.log('UI fixture aislada http://127.0.0.1:5174; contraseña solo-prueba-ui; base en memoria, datos ficticios.'));
